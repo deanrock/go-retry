@@ -17,6 +17,7 @@ type Command interface {
 
 // RealCommand structure
 type RealCommand struct {
+	inStream  io.Reader
 	outStream io.Writer
 	errStream io.Writer
 }
@@ -36,6 +37,7 @@ func (r RealCommand) run(c []string) int {
 
 	cmd.Stdout = r.outStream
 	cmd.Stderr = r.errStream
+	cmd.Stdin = r.inStream
 
 	err := cmd.Run()
 

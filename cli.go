@@ -16,6 +16,7 @@ const (
 
 // CLI is structure
 type CLI struct {
+	inStream             io.Reader
 	outStream, errStream io.Writer
 	ops                  Ops
 }
